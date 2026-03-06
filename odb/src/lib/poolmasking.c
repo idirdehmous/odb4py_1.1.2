@@ -146,11 +146,12 @@ permanent_poolmask(const int *handle,
       if (myproc == 1) {
 	int j;
 	fprintf(stderr,
-	"***INFO: Only the following pools will be accessed :npools = %d   pools: %s" ,count,  perm_pm )  ; 
+	"***INFO: Only the following pools will be accessed : %s" , perm_pm )  ; 
+
+
 	/* (dbname='%s', count=%d, nperm=%d)\n", 
 	dbname, n, pdb->nperm);
-	fprintf(stderr,
-		"            ODB_PERMAMENT_POOLMASK_%s=%s\n==>",dbname,perm_pm);*/
+	fprintf(stderr, ODB_PERMAMENT_POOLMASK_%s=%s\n==>",dbname,perm_pm);*/
 	for (j=1; j<=pdb->nperm; j++) {
 	  if (pdb->perm_list[j]) fprintf(stderr,"%d ", j);
 	} /* for (j=0; j<pdb->nperm; j++) */
@@ -315,7 +316,7 @@ codb_init_poolmask_(const int *handle,
 	/*fprintf(stderr,
 		"***INFO: Poolmasking ignored altogether for database '%s'\n",
 		p_dbname);*/
-	      void (0) ; 
+	      (void) 0 ; 
   }
   else if (maxval > 0) {
     poolmasking = 1;
