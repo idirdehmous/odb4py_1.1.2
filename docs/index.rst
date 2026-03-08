@@ -11,3 +11,5 @@ odb4py documentation
     odb_io
     odb_dca 
     data_retrieval
+    odb_in_python_ecosystem
+    open_odb_loop
