@@ -31,6 +31,9 @@ static PyMethodDef module_methods[] = {
 
     {"odbGeopoints" , (PyCFunction)(void(*)(void))  odbGeopoints_method , METH_VARARGS | METH_KEYWORDS,  "Fetch lat/lon/obsvalue according to some additional custom Where statement"},
 
+        {"odb2nc"  ,  (PyCFunction)(void(*)(void))     odb2nc_method   ,
+     METH_VARARGS | METH_KEYWORDS,   "Write data into netcdf file  "},
+
     {"version"   , odbMeta_version, METH_NOARGS, "Return the odb4py version."  },
 
     {"info"      , odbMeta_info,    METH_NOARGS, "Return build and Python info."},
