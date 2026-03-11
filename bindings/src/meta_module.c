@@ -16,13 +16,13 @@
 #define ODB4PY_VERSION "1.1.3"
 
 // return version  
-static PyObject* odbMeta_version(PyObject *self, PyObject *Py_UNUSED(ignored)) {
+static PyObject* odb_meta_version(PyObject *self, PyObject *Py_UNUSED(ignored)) {
     return Py_BuildValue("s", ODB4PY_VERSION);
 }
 
 
 // Get platform , build etc  info 
-static PyObject* odbMeta_info(PyObject *self, PyObject *Py_UNUSED(ignored)) {
+static PyObject* odb_meta_info(PyObject *self, PyObject *Py_UNUSED(ignored)) {
     return Py_BuildValue(
         "{s:s, s:s, s:s, s:s}",
         "version"     , ODB4PY_VERSION,
