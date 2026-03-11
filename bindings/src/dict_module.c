@@ -1,26 +1,29 @@
 #define PY_SSIZE_T_CLEAN
+
 //NUMPY API 
 #include <numpy/arrayobject.h>
 #include <numpy/ndarraytypes.h>
-
-#define ODB_STRLEN 8  // 8 chars + '\0' 
+// C 
 #include <stdio.h>
 #include <ctype.h>
 #include <math.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <Python.h>
+
+// Custom
 #include "pyspam.h"
 #include "progress.h" 
 #include "rows.h" 
 
+#define ODB_STRLEN 8  // 8 chars + '\0'
 
 // Declare excption  proto 
 static PyObject *PyOdbEmptyResultError = NULL;
 
 
-// Fonction  : odbDict_method
-static PyObject *odbDict_method(PyObject *Py_UNUSED(self),
+// Function  : odb_dict_method
+static PyObject *odb_dict_method(PyObject *Py_UNUSED(self),
                                  PyObject *args,
                                  PyObject *kwargs) {
 

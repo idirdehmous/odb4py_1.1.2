@@ -7,7 +7,7 @@
 
 
 // Get all ODB tables 
-static PyObject* odbTables_method(PyObject* Py_UNUSED(self),
+static PyObject* odb_info_tables_method(PyObject* Py_UNUSED(self),
                                   PyObject* Py_UNUSED(args))
 {
     static PyObject *cached_tables = NULL;
@@ -70,7 +70,7 @@ static PyObject* odbTables_method(PyObject* Py_UNUSED(self),
 
 
 // Get all ODB varno, short name  with descriptions 
-static  PyObject*  odbVarno_method(PyObject* Py_UNUSED(self), PyObject* Py_UNUSED(args) )
+static  PyObject*  odb_info_varno_method(PyObject* Py_UNUSED(self), PyObject* Py_UNUSED(args) )
 {
 char *var_name[]={"u", "v", "z", "dz", "rh", "pwc", "rh2m", "t", "td", "t2m", "td2m", "ts", "ptend", 
               "w", "ww", "vv", "ch", "cm", "cl", "nh", "nn", "hshs", "c", "ns", "sdepth", "e", "tgtg", "spsp1",
@@ -342,7 +342,7 @@ error:
 }
 
 // returns all ODB functions 
-static PyObject* odbFunctions_method(PyObject* Py_UNUSED(self),
+static PyObject* odb_info_funcs_method(PyObject* Py_UNUSED(self),
                                      PyObject* Py_UNUSED(args))
 {
     static PyObject *cached = NULL;

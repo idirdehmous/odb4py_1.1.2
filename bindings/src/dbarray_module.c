@@ -1,20 +1,24 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
+
+// NUMPY C/API 
 #include <numpy/arrayobject.h>
+
+//C 
 #include <stdlib.h>
 #include <math.h>
 
+// Custom 
 #include "odbdump.h"
 #include "rows.h"
 #include "progress.h"
 
 
 
-// odbArray  : numeric-only fetch  ---->  returns numpy.ndarray
-// The variables type 'string' are ignored  
-static PyObject * odbArray_method(PyObject *Py_UNUSED(self), PyObject *args, PyObject *kwargs)
+// odb_array  : numeric-only fetch  ---->  returns numpy.ndarray
+// The variables type 'string' are ignored   except if the header is asked to be returned 
+static PyObject * odb_array_method(PyObject *Py_UNUSED(self), PyObject *args, PyObject *kwargs)
 {
-    import_array();
 
     char *database  = NULL;
     char *sql_query = NULL;
@@ -291,6 +295,3 @@ mem_error:
     free(buffer);
     return PyErr_NoMemory();
 }
-
-
-

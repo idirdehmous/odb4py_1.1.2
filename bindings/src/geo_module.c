@@ -102,9 +102,8 @@ void sp_dists(double *u, double *v, double *uout, double *vout, int *n, double *
 
 
 
-static PyObject* odbGcdist_method( PyObject* Py_UNUSED(self) , PyObject* args)
+static PyObject* odb_gcdist_method( PyObject* Py_UNUSED(self) , PyObject* args)
 {
-    import_array()
     PyObject      *lon1_obj  , *lat1_obj , *lon2_obj, *lat2_obj;
     PyArrayObject *lon1      , *lat1     , *lon2    , *lat2    ;
 
@@ -203,8 +202,8 @@ static PyObject* odbGcdist_method( PyObject* Py_UNUSED(self) , PyObject* args)
 
 
 
-// Get  geopoints :  lat/lon and obsvalue 
-static PyObject *odbGeopoints_method(PyObject *Py_UNUSED(self) , PyObject *args, PyObject *kwargs)
+// Get  geopoints :  lat/lon alt date time and obsvalue 
+static PyObject *odb_geopoints_method(PyObject *Py_UNUSED(self) , PyObject *args, PyObject *kwargs)
 {
     char *database  = NULL;
     char *sql_cond  = NULL;
@@ -279,14 +278,13 @@ if (!sqlb)
     return PyErr_NoMemory();
 
 
-
 // The geo point first select statement 
 // If in degrees 
 if (unit && strcmp(unit,"degrees")==0){
-sqlbuilder_add(sqlb,  "SELECT degrees(lat), degrees(lon), obsvalue FROM hdr, body WHERE 1=1");
+sqlbuilder_add(sqlb,  "SELECT degrees(lat), degrees(lon),vertco_reference_1,vertco_reference_2,date,time, obsvalue FROM hdr, body WHERE 1=1");
 nfunc  = 2  ;   
 } else if (unit && strcmp(unit,"radians")==0  ) {
-sqlbuilder_add(sqlb,  "SELECT lat, lon, obsvalue FROM hdr, body WHERE 1=1");
+sqlbuilder_add(sqlb,  "SELECT lat, lon,vertco_reference_1,vertco_reference_2,date,time, obsvalue FROM hdr, body WHERE 1=1");
 nfunc =0  ; 
 }
 

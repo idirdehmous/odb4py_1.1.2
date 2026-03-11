@@ -12,15 +12,12 @@
 
 
 
-
-
-// Check dir exists 
+// Check dir existance  
 static int dir_exists(const char *path)
 {
     struct stat st;
     return (stat(path, &st) == 0 && S_ISDIR(st.st_mode));
 }
-
 
 
 // Path  validity 
@@ -47,10 +44,6 @@ static int valid_odb_path(const char *path)
 }
 
 
-
-
-
-
 int get_available_cpus(void)
 {   
     // If the script is in a SLURM env  
@@ -73,12 +66,6 @@ int get_available_cpus(void)
 
     return (int)ncpu;
 }
-
-
-
-
-
-
 
 /*static int dca_files_exist(const char *dbpath       ,
                            PyObject   *tables       ,
@@ -114,11 +101,8 @@ int get_available_cpus(void)
 
 
 
-
-
-
-// odbDca Python method      
-static PyObject * odbDca_method(PyObject *Py_UNUSED(self), PyObject *args, PyObject *kwargs)
+// odb_dca Python method      
+static PyObject * odb_dca_method(PyObject *Py_UNUSED(self), PyObject *args, PyObject *kwargs)
 {
     const char *dbpath = NULL;
     const char *dbtype = NULL;

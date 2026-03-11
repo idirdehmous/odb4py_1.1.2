@@ -28,7 +28,7 @@ ODBc_get_free_handles(int *Maxhandle)
 
 
 // OPEN ODB  AND GET ODB handler !
-static PUBLIC   PyObject*   odbConnect_method ( PyObject *Py_UNUSED(self) , PyObject* args ,  PyObject *kwargs)  {
+static  PyObject*   odb_connect_method ( PyObject *Py_UNUSED(self) , PyObject* args ,  PyObject *kwargs)  {
 	char *dbname  =NULL  ; 
         char *mode    =NULL  ;
 	int  *npools  =0     ;
@@ -298,8 +298,10 @@ static PUBLIC   PyObject*   odbConnect_method ( PyObject *Py_UNUSED(self) , PyOb
 
 
 // Close the ODB 
-static PUBLIC PyObject* odbClose_method(PyObject *Py_UNUSED(self), PyObject *args)
+static  PyObject* odb_close_method(PyObject *Py_UNUSED(self), PyObject *args)
 {
+
+    // This method  has to be improved ( Adapting the one in the original ODB code ODBc_close ())
     int handle = 0;
     // handle mandatory 
     if (!PyArg_ParseTuple(args, "i", &handle)) {
@@ -308,8 +310,8 @@ static PUBLIC PyObject* odbClose_method(PyObject *Py_UNUSED(self), PyObject *arg
         return NULL;
     }
 
-    if (handle =! 1) { handle =1 ; }
 
+   if (handle =! 1) { handle =1 ; }
    if   (!free_handles || handle < 1 || handle > maxhandle)  {
         fprintf(stderr,
             "--odb4py : invalid handle %d\n", handle);
@@ -319,12 +321,10 @@ static PUBLIC PyObject* odbClose_method(PyObject *Py_UNUSED(self), PyObject *arg
     
     DB_t *ph = &free_handles[handle - 1];
 
-    //
     DCA_free(handle);
     codb_end_poolmask_(&handle);
 
     // Free allocated memory 
-
     FREE(ph->srcpath);
     FREE(ph->datapath);
     FREE(ph->idxpath);
