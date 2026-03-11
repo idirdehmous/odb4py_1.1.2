@@ -9,7 +9,7 @@
 #include "dict_module.h"
 #include "geo_module.h"
 #include "dbarray_module.h"
-#include "nc_module.h" 
+//#include "nc_module.h" 
 
 
 PyDoc_STRVAR(connect_doc   , "Establish an ODB connection returns 0 if sucess -1 otherwise.");
@@ -22,7 +22,7 @@ PyDoc_STRVAR(dict_doc      , "Fetch ODB rows as a python  dictionnary where the 
 PyDoc_STRVAR(dcaf_doc      , "Create DCA files (Direct Column  Access ).");
 PyDoc_STRVAR(dist_doc      , "Compute great circle distance between numpy lat/lon pairs. Optimized with Numpy C/API.");
 PyDoc_STRVAR(geop_doc      , "Fetch lat,lon,alt,date,time and obsvalue according to some additional custom 'WHERE' SQL conditions.");
-PyDoc_STRVAR(ncdf_doc      , "Convert the columns in the SQL query into NetCDF format (NetCDF Classic  or 4 ).");
+//PyDoc_STRVAR(ncdf_doc      , "Convert the columns in the SQL query into NetCDF format (NetCDF Classic  or 4 ).");
 PyDoc_STRVAR(vers_doc      , "Returns the odb4py version." );
 PyDoc_STRVAR(meta_doc      , "Returns build and Python info.");
 
@@ -40,7 +40,7 @@ static PyMethodDef module_methods[] = {
     {"odb_dca"        ,(PyCFunction)    odb_dca_method        , METH_VARARGS | METH_KEYWORDS, dcaf_doc     },
     {"odb_gcdist"     ,(PyCFunction)    odb_gcdist_method     , METH_VARARGS | METH_KEYWORDS, dist_doc     },
     {"odb_geopoints"  ,(PyCFunction)    odb_geopoints_method  , METH_VARARGS | METH_KEYWORDS, geop_doc     },
-    {"odb2nc"         ,(PyCFunction)    odb2nc_method         , METH_VARARGS | METH_KEYWORDS, ncdf_doc     },
+  //  {"odb2nc"         ,(PyCFunction)    odb2nc_method         , METH_VARARGS | METH_KEYWORDS, ncdf_doc     },
     {"version"        ,odb_meta_version, METH_NOARGS          , vers_doc },
     {"info"           ,odb_meta_info,    METH_NOARGS          , meta_doc },
     {"odb_connect"    ,(PyCFunction)    odb_connect_method    , METH_VARARGS | METH_KEYWORDS, connect_doc},
