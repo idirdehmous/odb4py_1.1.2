@@ -1,4 +1,7 @@
+#ifndef EXCEP_H
+#define EXCEP_H
 #define PY_SSIZE_T_CLEAN
+
 #include  <stdio.h>
 #include  "Python.h"
 
@@ -14,3 +17,4 @@ extern PyObject* odb4py_IntegrityError;
 extern PyObject* odb4py_DataError;
 extern PyObject* odb4py_NotSupportedError;
 
+#endif  
