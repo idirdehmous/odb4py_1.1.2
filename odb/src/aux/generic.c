@@ -312,8 +312,8 @@ ODBc_open(const char *dbname, const char *mode, int *npools, int *ntables, const
 	      len = STRLEN(dcagen_fmt) + STRLEN(dcagen_cmd) + STRLEN(ph->srcpath) + 1;
 	      ALLOCX(cmd, len);
 	      snprintf(cmd, len, dcagen_fmt, dcagen_cmd, ph->srcpath);
-	      fprintf(stderr,"***Warning: Generating dca-indices into directory '%s' ...\n", dcadir);
-	      fprintf(stderr,"***Warning: The command used is : %s\n", cmd);
+	      //fprintf(stderr,"***Warning: Generating dca-indices into directory '%s' ...\n", dcadir);
+	      //fprintf(stderr,"***Warning: The command used is : %s\n", cmd);
 	      if (odbdump_on) fflush(stderr);
 	      iret = system(cmd);
 	      if (iret != 0) {
