@@ -230,7 +230,7 @@ if ( tables != Py_None  &&  PySequence_Check(tables)) {
     printf( "%s : %s\n"  , "--odb4py : ODB_FEBINPATH is set to " ,bebin  ) ;
     printf(  "--odb4py : dcagen runs with the command : %s\n", cmd ) ;   
 
-    if ( tables != Py_None  &&  !PySequence_Check(tables) ){
+    if ( tables != Py_None  &&  PySequence_Check(tables) ){
     printf("%s\n"   , "--odb4py : The dca file will be created for the table :") ; 
         for (Py_ssize_t i = 0; i < ntab ; ++i) {
         PyObject *item = PyList_GetItem(tables, i); // borrowed ref
