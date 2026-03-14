@@ -7,6 +7,9 @@ import sys , os
 
 
 
+# THIS CLASS IS NOT INCLUDED IN THE PACKAGE !
+
+
 __all__=[ "DrHook"  ]
 
 class DrHook:
